@@ -1,0 +1,35 @@
+SUCCESS 1.1: Volume using Hand gestures-
+- Note
+-- In this one I was controlling the volume using the distance between the Index finger and Thumb. The more the distance between the 2 fingers the more the volume. Thus when I pinch, it is on mute.
+
+- Improvement Places
+-- Can use FIST as a gesture to MUTE. Then until OPEN PALM is shown the volume will be mute. When volume is increased using the Palm I can get a notification that it is unmuted and volume can be increased again.
+-- The volume is not stable at a proper point and keeps goin +-5 to 6 points.
+smoothed_vol = 0
+SMOOTHING = 0.3  # lower = smoother, more lag
+# inside the loop:
+smoothed_vol = SMOOTHING * vol_percent + (1 - SMOOTHING) * smoothed_vol
+-- Improve the UI and graphics of volume level
+--FROM CLAUDE: Modularize for reuse
+Right now hand detection, distance calc, and volume control are all tangled in one loop. If you plan to reuse this for brightness/media control next, it's worth splitting into:
+get_pinch_distance(landmarks, w, h) → returns distance
+map_to_percent(distance) → returns 0–100
+a pluggable "action" function (set volume vs. set brightness vs. whatever)
+
+
+SUCCESS 1.2: Volume using Hand Gestures-
+- Note
+-- DirectShow backend, 640×480 resolution, buffer size 1, lite MediaPipe model.
+
+-Improvements
+-- same as previous ones.
+
+SUCCESS 2.1: Brightness using Hand Gestures-
+- Note
+-- Initial program set up.
+-- THis used some smoothing and proper out of main loop calls so the video is not laggy.
+-- Palm-> 100%, Fist -> 10%, Pinch->0.
+
+- Improvements
+-- Can use better smoothing and control.
+--Can try using both the hands for different operations in this. Still to think upon.
