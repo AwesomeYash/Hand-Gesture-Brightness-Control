@@ -47,7 +47,7 @@ MAX_DIST = 200   # fingers fully spread -> 100% brightness
 # distance from the wrist. Ratio-based (not raw pixel distance) so it works
 # regardless of hand size or distance from the camera.
 FIST_RATIO = 0.9   # tip closer to wrist than 0.9x the knuckle distance -> curled
-PALM_RATIO = 1.3   # tip farther from wrist than 1.3x the knuckle distance -> extended
+PALM_RATIO = 1.7   # tip farther from wrist than 1.7x the knuckle distance -> extended 1.3->1.7
 
 FIST_BRIGHTNESS = 10
 PALM_BRIGHTNESS = 100
